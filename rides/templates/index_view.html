@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main"> 
+  <table>
+      {% for person in people %}
+      <tr>
+          <td>{{ person.first_name }}</td> 
+          <td>{{ person.origination }}</td>
+          <td>{{ person.destination_city }}</td> 
+          <td>{{ person.destination_state }}</td> 
+          <td>{{ person.date }}</td> 
+          <td>{{ person.time }}</td> 
+          <td>{{ person.taking_passengers }}</td>
+          <td>{{ person.seats_available }}</td> 
+      </tr>
+      {% endfor %} 
+  </table>
+</div> 
+
+<form action="{% url 'rides:index' %}" method="get">
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

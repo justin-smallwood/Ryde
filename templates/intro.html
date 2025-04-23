@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="intro-container">
+    <div class="intro-content">
+        <div class="page-title">
+            <h1>RYDE</h1>
+        </div>
+        <div class="logo-container">
+            <img src="{% static 'ryde.jpg' %}" alt="Image of logo">
+        </div>
+        <h1>Welcome to Ryde</h1>
+        <p>Where would you like to ryde, today?</p>
+        <a href="{% url 'rides:index' %}" class="start-button">Let's RYDE</a>
+    </div>
+</div>
+{% endblock %} 

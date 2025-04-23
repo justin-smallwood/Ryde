@@ -1,0 +1,121 @@
+{% extends "base_nav.html" %}
+{% load static %}
+
+{% block head %}
+  {{ block.super }}
+  <style>
+    /* Simple styling for our inline error */
+    .error-message {
+      color: red;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+    /* Force State input to display uppercase */
+    #destination_state {
+      text-transform: uppercase;
+    }
+    .search-fields {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .field-group { display: flex; flex-direction: column; gap: .25rem; }
+    .search-input, .search-button {
+      width: 100%; box-sizing: border-box; padding: .5rem;
+    }
+  </style>
+{% endblock %}
+
+{% block subcontent %}
+<div class="content-container">
+  <div class="search-container">
+    <!-- Find a Ride Box -->
+    <div class="search-box">
+      <div class="search-component">
+        <h2>Find a Ride</h2>
+      </div>
+      <div class="search-component">
+        <p>Enter a destination city and/or state to find available rides:</p>
+      </div>
+      <div class="search-component">
+        <form method="get" class="search-form">
+          <div class="search-fields">
+            <!-- City field group -->
+            <div class="field-group">
+              <label for="destination_city">City:</label>
+              <input
+                type="text"
+                id="destination_city"
+                name="destination_city"
+                class="search-input"
+                placeholder="Enter city..."
+                value="{{ request.GET.destination_city|default_if_none:'' }}"
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="search-component">
+        <form method="get" class="search-form">
+          <div class="search-fields">
+            <!-- City field group -->
+            <!-- State field group -->
+            <div class="field-group">
+              <label for="destination_state">State:</label>
+              <input
+                type="text"
+                id="destination_state"
+                name="destination_state"
+                class="search-input"
+                placeholder="Enter state..."
+                maxlength="2"
+                oninput="this.value = this.value.toUpperCase();"
+                value="{{ request.GET.destination_state|default_if_none:'' }}"
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <div class="search-component">
+        <form method="get" class="search-form">
+          <div class="search-fields">
+            <!-- City field group -->
+            <!-- Centered Search button -->
+            <button type="submit" class="search-button">Search</button>
+          </div>
+        </form>
+      </div>
+
+      {# Validation error #}
+      {% if error_msg %}
+        <p class="error-message">{{ error_msg }}</p>
+      {% endif %}
+    </div>
+
+    {% if inputExists and not error_msg %}
+      <div class="search-component">
+        {% if no_results %}
+          <p>No rides found matching your search.</p>
+        {% else %}
+          <ul>
+            {% for person in people %}
+              <li>
+                <div class="rider-name">{{ person.first_name }} {{ person.last_name }}</div>
+                <div class="ride-origin">From: {{ person.origination }}</div>
+                <div class="ride-destination">
+                  To: {{ person.destination_city }}, {{ person.destination_state }}
+                </div>
+                <div class="ride-seats">Seats Available: {{ person.seats_available }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %} 

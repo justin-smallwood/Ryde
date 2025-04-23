@@ -1,0 +1,81 @@
+{% extends "base_nav.html" %}
+{% load static %}
+
+{% block head %}
+  {{ block.super }}
+  <style>
+    .error-message { color: red; font-weight: bold; margin-top: .5rem; }
+    .search-fields {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    .search-input, .search-button {
+      width: 100%;
+      box-sizing: border-box;
+      padding: .5rem;
+    }
+    .search-button {
+      margin-top: 1rem;
+    }
+  </style>
+{% endblock %}
+
+{% block subcontent %}
+<div class="content-container">
+  <div class="back-button-container">
+    <a href="{% url 'rides:index' %}" class="back-button">← Back to Home</a>
+  </div>
+  <div class="search-container">
+    <div class="search-box">
+      <h2 class="search-component">Search Users</h2>
+      <form method="get" class="search-form">
+        <div class="search-fields">
+          <div class="field-group">
+            <label for="first_name">First Name:</label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              class="search-input"
+              placeholder="Enter first name…"
+              value="{{ first_name }}"
+            >
+          </div>
+          <div class="field-group">
+            <label for="last_name">Last Name:</label>
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              class="search-input"
+              placeholder="Enter last name…"
+              value="{{ last_name }}"
+            >
+          </div>
+          <button type="submit" class="search-button">Search</button>
+        </div>
+      </form>
+
+      {% if inputExists %}
+        <div class="search-component">
+          {% if error_msg %}
+            <p class="error-message">{{ error_msg }}</p>
+          {% elif user_exists %}
+            <p>User <strong>{{ first_name }} {{ last_name }}</strong> exists.</p>
+          {% else %}
+            <p>This user does not exist.</p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %} 

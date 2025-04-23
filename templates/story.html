@@ -1,0 +1,37 @@
+{% extends "base_nav.html" %}
+{% load static %}
+
+{% block content %}
+<div class="story-container">
+    <div class="back-button-container">
+        <a href="{% url 'rides:index' %}" class="back-button">← Back to Home</a>
+    </div>
+    
+    <div class="story-content">
+        <h1>Our Story</h1>
+        
+        <div class="founders-images">
+            <div class="founder-image">
+                <img src="/static/isaiah_young.jpg" alt="Young Isaiah">
+            </div>
+            <div class="founder-image">
+                <img src="/static/justin_young.jpg" alt="Young Justin">
+            </div>
+        </div>
+
+        <div class="story-text">
+            <p>When they were young lads, Isaiah and Justin dreamed of driving and exploring the world. However, there was one major problem: wee little lads can't drive in the United States.</p>
+            
+            <p>"Why can't I go to Tommy's birthday party, Mom?" Justin once asked.</p>
+            
+            <p>"Because you can't drive, and I don't want to take you," she replied.</p>
+            
+            <p>Those words stung, and Justin never forgot them. It wasn't until he met Isaiah and they both took ORF 401 at Princeton that everything started to make sense. A wise mentor advised them to create a business that would help people get where they wanted to go—whether or not they owned a car.</p>
+            
+            <p>And so, Ryde was born.</p>
+            
+            <p>At RYDE©, we value comfort, convenience, and experience. If you need a ride, we'll seamlessly and effortlessly get you where you need to go.</p>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,75 @@
+/* Make .search-fields a vertical stack */
+.search-box .search-fields {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch;   /* make children full‑width by default */
+  gap: 1rem;              /* space between each field + button */
+}
+
+/* Make search-fields stack vertically (already exists) */
+.search-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Center the Search button under the State field */
+.search-button {
+  /* remove full-width */
+  width: auto;
+  /* center in the flex column */
+  align-self: center;
+  /* optional: tweak padding */
+  padding: 8px 16px;
+}
+
+/* 2) Make each field‑group truly block‑level & full width */
+.search-box .search-fields .field-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 3) Ensure inputs fill their container (optional) */
+.search-box .search-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 4) Center the Search button under the fields */
+.search-box .search-button {
+  align-self: center;  /* horizontally center in the flex column */
+  display: block;
+  width: auto;         /* shrink to text size */
+  padding: 0.5rem 1rem;
+}
+
+/* ── STACK CITY/STATE VERTICALLY ─────────────────────────────────────────── */
+.search-box .search-form .search-fields {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch;    /* make children full‑width by default */
+  gap: 0.75rem;            /* space between rows */
+}
+
+/* Make each label+input pair a block that fills the width */
+.search-box .search-fields .field-group {
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  margin: 0;
+}
+
+/* Ensure inputs span the full width */
+.search-box .search-fields .search-input {
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+/* ── CENTER THE SEARCH BUTTON ───────────────────────────────────────────── */
+.search-box .search-fields .search-button {
+  display: block;
+  width: auto;             /* shrink to text width */
+  margin: 1rem auto 0;     /* 1rem top, auto‐centered left/right */
+  padding: 0.5rem 1rem;
+} 

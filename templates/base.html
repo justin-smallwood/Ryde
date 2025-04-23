@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'main.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <title> ORF 401: Spring 2022 </title>
+  </head>
+  <body>
+    <center>
+      <div class="scrollable-content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </center>
+    <script src="{% static 'main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{% extends "base_nav.html" %}
+
+{% block subcontent %}
+<div class="content-container">
+    <div class="search-container">
+        <!-- Find a Ride Box -->
+        <div class="search-box">
+            <h2>Find a Ride</h2>
+            <form class="search-form" onsubmit="return searchRides(event)">
+                <div class="search-fields">
+                    <div class="field-group">
+                        <label for="city">City:</label>
+                        <input type="text" class="search-input" id="city" placeholder="Enter city...">
+                    </div>
+                    <div class="field-group">
+                        <label for="state">State:</label>
+                        <input type="text" class="search-input" id="state" placeholder="Enter state...">
+                    </div>
+                    <button type="submit" class="search-button">Search</button>
+                </div>
+            </form>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <h2>Search</h2>
+            <form class="search-form" onsubmit="return searchAll(event)">
+                <input type="text" class="search-input" id="searchAll" placeholder="Search all...">
+                <button type="submit" class="search-button">Search</button>
+            </form>
+            <div id="allResults" class="search-results"></div>
+        </div>
+    </div>
+
+    <!-- Results will be displayed here -->
+    <div id="results"></div>
+</div>
+{% endblock %}

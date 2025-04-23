@@ -1,0 +1,44 @@
+{% block subcontent %}
+<div class="content-container">
+  <div class="search-container">
+    <!-- Find a Ride Box -->
+    <div class="search-box">
+      <div class="search-component">
+        <h2>Find a Ride</h2>
+      </div>
+      <div class="search-component">
+        <p>Enter a destination city and state to find available rides:</p>
+      </div>
+      <div class="search-component">
+        <form method="get" class="search-form">
+          <!-- STACK FIELDS VERTICALLY -->
+          <div class="search-fields">
+            <div class="field-group">
+              <label for="destination_city">City:</label>
+              <input
+                type="text"
+                id="destination_city"
+                name="destination_city"
+                class="search-input"
+                placeholder="Enter city..."
+              >
+            </div>
+            <div class="field-group">
+              <label for="destination_state">State:</label>
+              <input
+                type="text"
+                id="destination_state"
+                name="destination_state"
+                class="search-input"
+                placeholder="Enter state..."
+              >
+            </div>
+            <button type="submit" class="search-button">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- … rest of page … -->
+  </div>
+</div>
+{% endblock %} 

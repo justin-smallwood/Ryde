@@ -1,0 +1,28 @@
+{% extends "base_nav.html" %}
+{% load static %}
+
+{% block content %}
+<div class="founders-container">
+    <div class="back-button-container">
+        <a href="{% url 'rides:index' %}" class="back-button">← Back to Home</a>
+    </div>
+    
+    <h1>Founders</h1>
+    
+    <div class="founders-profiles">
+        <div class="founder-profile">
+            <div class="founder-image">
+                <img src="/static/isaiah_now.jpg" alt="Isaiah Park">
+            </div>
+            <h3>Isaiah Park '26</h3>
+        </div>
+        
+        <div class="founder-profile">
+            <div class="founder-image">
+                <img src="/static/justin_now.jpg" alt="Justin Smallwood">
+            </div>
+            <h3>Justin Smallwood '26</h3>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base_nav.html" %}
+
+{% block content %}
+<div class="help-container">
+    <div class="back-button-container">
+        <a href="{% url 'rides:index' %}" class="back-button">← Back to Home</a>
+    </div>
+    
+    <div class="help-content">
+        <h1>Help Center</h1>
+        <div class="help-message">
+            <p>If you need help, we can help</p>
+        </div>
+    </div>
+</div>
+{% endblock %} 
